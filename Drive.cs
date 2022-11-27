@@ -74,7 +74,7 @@ namespace MultiplayerKart
             brakeLight.SetActive(false);
         }
 
-        void CalculateEngineSound()
+        public void CalculateEngineSound()
         {
             float gearPercentage = (1/(float) numGears);
             float targetGearFactor = Mathf.InverseLerp(gearPercentage * currentGear, gearPercentage * (currentGear +1),
@@ -103,7 +103,7 @@ namespace MultiplayerKart
             acceleration.pitch = Mathf.Min(highPitch, pitch) * rpmDrop;;//rom drop in between shifting gears
         }
 
-        void Go(float accelerate, float steer, float brake)
+        public void Go(float accelerate, float steer, float brake)
         {
             accelerate = Mathf.Clamp(accelerate, -1, 1);
             steer = Mathf.Clamp(steer, -1, 1) * maxSteeringAngle;
@@ -151,7 +151,7 @@ namespace MultiplayerKart
             }
         }
 
-        void CheckForSkid()
+        public void CheckForSkid()
         {
             int numSkidding = 0;
             for(int i = 0; i < 4; i++)
@@ -184,17 +184,6 @@ namespace MultiplayerKart
             }
         }
         // Update is called once per frame
-        void Update()
-        {
-            float movement = Input.GetAxis("Vertical");
-            float steering = Input.GetAxis("Horizontal");
-            //Space bar is used for braking
-            float braking = Input.GetAxis("Jump");
-
-            Go(movement, steering, braking);
-
-            CheckForSkid();
-            CalculateEngineSound();
-        }
+       
     }
 }
