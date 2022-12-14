@@ -25,7 +25,7 @@ namespace MultiplayerKart
 
         public Rigidbody rb;
         public float gearLength = 3;
-        float currentSpeed{get { return rb.velocity.magnitude * gearLength; } }
+        public float currentSpeed{get { return rb.velocity.magnitude * gearLength; } }
         public float lowPitch  =1f;
         public float highPitch = 6f;
         public int numGears = 5;
